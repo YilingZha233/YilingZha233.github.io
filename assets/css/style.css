@@ -694,58 +694,108 @@ small {
 }
 
 
-/* Activity 3: Light Purple Theme */
+/* =========================================================
+   Activity 3: Light Purple Theme
+   ========================================================= */
 
+:root {
+  --purple-main: #8e63b8;
+  --purple-dark: #6f4794;
+  --purple-light: #c8a2e8;
+  --purple-pale: #faf7ff;
+  --purple-border: #b88ad8;
+  --text-dark: #333333;
+}
+
+/* Overall page */
 body {
-  background-color: #faf7ff;
-  color: #333333;
+  background-color: var(--purple-pale);
+  color: var(--text-dark);
 }
 
+/* Navigation */
+nav,
+.navbar,
+nav ul a {
+  background-color: var(--purple-main) !important;
+  color: #ffffff !important;
+}
+
+/* Main section titles */
+.page-title,
 .teal {
-  background-color: #c8a2e8 !important;
-}
-
-.teal-text {
-  color: #7b4ea3 !important;
-}
-
-.page-title {
-  background-color: #c8a2e8 !important;
+  background-color: var(--purple-light) !important;
   color: #ffffff !important;
 }
 
-nav {
-  background-color: #8e63b8 !important;
+/* All teal text becomes purple */
+.teal-text,
+a.teal-text {
+  color: var(--purple-main) !important;
 }
 
-nav a {
-  color: #ffffff !important;
-}
-
+/* Links */
 a {
-  color: #7b4ea3;
+  color: var(--purple-main);
 }
 
 a:hover {
-  color: #5e3a7d;
+  color: var(--purple-dark);
 }
 
+/* Profile image / profile picture outline */
+.profile-pic,
+.profile-img,
+img.circle {
+  border: 5px solid var(--purple-light) !important;
+}
+
+/* Cards */
 .card {
-  border-top: 4px solid #c8a2e8;
+  border-top: 4px solid var(--purple-light);
 }
 
+/* Card titles */
+.card-title,
 .card-title a {
-  color: #7b4ea3 !important;
+  color: var(--purple-main) !important;
 }
 
-.brown-text {
-  color: #6d4c7d !important;
+/* Buttons */
+.btn,
+.btn-large,
+button {
+  background-color: var(--purple-main) !important;
 }
 
-.btn {
-  background-color: #8e63b8 !important;
+.btn:hover,
+.btn-large:hover,
+button:hover {
+  background-color: var(--purple-dark) !important;
 }
 
-.btn:hover {
-  background-color: #704a94 !important;
+/* Icons */
+.fa,
+.material-icons,
+.teal-text .fa {
+  color: var(--purple-main) !important;
+}
+
+/* Timeline / decorative lines */
+.vertical-line,
+.timeline,
+ul.timeline li::before {
+  border-color: var(--purple-light) !important;
+}
+
+/* Footer */
+footer,
+.page-footer {
+  background-color: var(--purple-main) !important;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--purple-light);
+  color: #ffffff;
 }
