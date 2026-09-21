@@ -1,17 +1,13 @@
 .profile-pic {
   position: relative;
-  max-width:130px;
-  max-height:130px;
+  max-width: 130px;
+  max-height: 130px;
   width: auto;
   height: auto;
   overflow: hidden;
-  /* display: inline-block; */
-  
-  
-  /* background-size: cover;  */
-  margin: -31px; 
-  margin-left:-7px;
-  border: 6px solid rgba(0, 77, 64, 0.4); 
+  margin: -31px;
+  margin-left: -7px;
+  border: 6px solid rgba(142, 99, 184, 0.55);
   border-radius: 50% !important;
 }
 
@@ -85,7 +81,7 @@
   position: relative;
   padding: 11px 35px;
   background: #fff;
-  color: #00796b;
+  color: #8e63b8;
   border: 2px solid #fff;
   font-weight: 600;
   font-size: 15px;
@@ -116,7 +112,7 @@
 }
 
 .contactme:hover{
-  color: #00796b;
+  color: #8e63b8;
   background-color: white;
 }
 /* main body */
@@ -140,7 +136,7 @@ body {
 } */
 
 a {
-  color: #004d40;
+  color: #8e63b8;
 }
 
 /* main blockqoute */
@@ -235,9 +231,10 @@ ul.side-nav li {
   padding: 10px 0 12px;
 } */
 
+
 ul.side-nav.fixed a {
   box-sizing: content-box;
-  color: rgb(16, 202, 56);
+  color: #8e63b8;
   display: block;
   line-height: 100%;
   padding: 10px 0 12px;
@@ -320,7 +317,7 @@ h3 {
 } */
 
 #intro.section {
-  background: #a7ffeb repeat;
+  background: #c8a2e8;
   position: relative;
 }
 
@@ -473,7 +470,7 @@ a.hoverline {
 } */
 
 a.hoverline:hover {
-  border-bottom: 3px solid #004d40 !important;
+  border-bottom: 3px solid #8e63b8 !important;
 }
 
 #skills .card.large {
@@ -549,7 +546,7 @@ small {
 /* main .teal-text */
 
 .teal-text {
-  color: #008073 !important;
+  color: #8e63b8 !important;
 }
 
 /* .teal-text {
@@ -559,7 +556,7 @@ small {
 /* .teal */
 
 .teal {
-  background-color: #008073 !important;
+  background-color: #c8a2e8 !important;
 }
 
 /* .teal {
@@ -707,30 +704,29 @@ small {
   --text-dark: #333333;
 }
 
-/* Overall page */
+/* Overall website */
 body {
   background-color: var(--purple-pale);
   color: var(--text-dark);
 }
 
+/* Landing page */
+#intro.section {
+  background: var(--purple-light);
+  position: relative;
+}
+
+/* Profile picture outline */
+.profile-pic {
+  border: 6px solid rgba(142, 99, 184, 0.55) !important;
+}
+
 /* Navigation */
-nav,
-.navbar,
-nav ul a {
-  background-color: var(--purple-main) !important;
-  color: #ffffff !important;
+nav {
+  background-color: white;
 }
 
-/* Main section titles */
-.page-title,
-.teal {
-  background-color: var(--purple-light) !important;
-  color: #ffffff !important;
-}
-
-/* All teal text becomes purple */
-.teal-text,
-a.teal-text {
+ul.side-nav.fixed a {
   color: var(--purple-main) !important;
 }
 
@@ -743,11 +739,27 @@ a:hover {
   color: var(--purple-dark);
 }
 
-/* Profile image / profile picture outline */
-.profile-pic,
-.profile-img,
-img.circle {
-  border: 5px solid var(--purple-light) !important;
+/* Section headers */
+.teal,
+.page-title {
+  background-color: var(--purple-light) !important;
+  color: white !important;
+}
+
+/* Purple text */
+.teal-text,
+a.teal-text {
+  color: var(--purple-main) !important;
+}
+
+/* Introduction underline */
+#intro.section .underline {
+  border-bottom: 5px solid var(--purple-dark);
+}
+
+/* Hover underline */
+a.hoverline:hover {
+  border-bottom: 3px solid var(--purple-main) !important;
 }
 
 /* Cards */
@@ -763,39 +775,41 @@ img.circle {
 
 /* Buttons */
 .btn,
-.btn-large,
-button {
+.btn-large {
   background-color: var(--purple-main) !important;
 }
 
 .btn:hover,
-.btn-large:hover,
-button:hover {
+.btn-large:hover {
   background-color: var(--purple-dark) !important;
 }
 
-/* Icons */
-.fa,
-.material-icons,
-.teal-text .fa {
-  color: var(--purple-main) !important;
+/* Read Me button */
+.readme {
+  color: var(--purple-main);
 }
 
-/* Timeline / decorative lines */
-.vertical-line,
-.timeline,
-ul.timeline li::before {
-  border-color: var(--purple-light) !important;
+/* Contact button */
+.contactme:hover {
+  color: var(--purple-main);
+  background-color: white;
+}
+
+/* Icons */
+.teal-text .fa,
+.teal-text .material-icons,
+.fa {
+  color: var(--purple-main);
 }
 
 /* Footer */
 footer,
 .page-footer {
-  background-color: var(--purple-main) !important;
+  background-color: var(--purple-main);
 }
 
-/* Selection highlight */
+/* Text selection */
 ::selection {
   background-color: var(--purple-light);
-  color: #ffffff;
+  color: white;
 }
