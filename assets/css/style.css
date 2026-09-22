@@ -813,3 +813,32 @@ footer,
   background-color: var(--purple-light);
   color: white;
 }
+
+
+
+/* Activity 4: Places Travelled */
+
+#places .card {
+    height: 100%;
+}
+
+#places .card-title {
+    color: var(--purple-main) !important;
+    font-weight: 500;
+}
+
+#places ul {
+    padding-left: 20px;
+}
+
+#places li {
+    margin-bottom: 8px;
+}
+
+#places iframe {
+    display: block;
+    width: 100%;
+    min-height: 400px;
+    border-radius: 4px;
+}
+
