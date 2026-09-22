@@ -69,6 +69,11 @@
   <meta name="robots" content="index, follow" />
   <!-- Google Site Verification for indexing -->
   <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
+  <!-- Interactive Travel Map: Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
 </head>
 
 <body>
@@ -737,65 +742,95 @@
   </div>
 </section>
 
-    <!-- Eight Section: Places Travelled -->
+
+<!-- Eight Section: Places Travelled -->
 <section id="places" class="section scrollspy">
+
     <div class="container">
+
         <div class="row">
+
             <div class="col s12">
+
                 <h3 class="page-title">
                     <span class="teal-text">Places Travelled</span>
                 </h3>
+
             </div>
 
-            <div class="col s12 m6">
+
+            <!-- Travel List -->
+            <div class="col s12 m5">
+
                 <div class="card">
+
                     <div class="card-content">
-                        <span class="card-title">Places I've Visited</span>
+
+                        <span class="card-title">
+                            Places I've Visited
+                        </span>
 
                         <p>
-                            I have explored places across Canada, China, Japan,
-                            and the United States.
+                            I have explored places across Canada, China,
+                            Japan, and the United States.
                         </p>
 
                         <br>
 
                         <ul>
+
                             <li>🇨🇳 Shanghai, China</li>
                             <li>🇨🇳 Beijing, China</li>
                             <li>🇨🇳 Suzhou, China</li>
                             <li>🇨🇳 Sanya, China</li>
                             <li>🇨🇳 Dunhuang, China</li>
+
                             <li>🇨🇦 Toronto, Canada</li>
                             <li>🇨🇦 Vancouver, Canada</li>
                             <li>🇨🇦 Alberta, Canada</li>
+
                             <li>🇯🇵 Tokyo, Japan</li>
+
                             <li>🇺🇸 Texas, USA</li>
                             <li>🇺🇸 New York, USA</li>
                             <li>🇺🇸 Raleigh, USA</li>
+
                         </ul>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <div class="col s12 m6">
+
+            <!-- Interactive Map -->
+            <div class="col s12 m7">
+
                 <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Travel Map</span>
 
-                        <iframe
-                            src="https://www.google.com/maps?q=Shanghai,China&output=embed"
-                            width="100%"
-                            height="450"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                    <div class="card-content">
+
+                        <span class="card-title">
+                            Interactive Travel Map
+                        </span>
+
+                        <p>
+                            Click a marker to see a destination I have visited.
+                        </p>
+
+                        <div id="travel-map"></div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
     <!-- Nine Section: Contact -->
@@ -1128,6 +1163,130 @@
 
   });
 
+</script>
+
+
+<!-- Interactive Travel Map: Leaflet -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // Create the map
+    const map = L.map("travel-map").setView(
+      [35, 110],
+      3
+    );
+
+
+    // Add OpenStreetMap tiles
+    L.tileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        maxZoom: 18,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }
+    ).addTo(map);
+
+
+    // Places I have visited
+    const places = [
+      {
+        name: "Shanghai",
+        country: "China",
+        coordinates: [31.2304, 121.4737]
+      },
+
+      {
+        name: "Beijing",
+        country: "China",
+        coordinates: [39.9042, 116.4074]
+      },
+
+      {
+        name: "Suzhou",
+        country: "China",
+        coordinates: [31.2989, 120.5853]
+      },
+
+      {
+        name: "Sanya",
+        country: "China",
+        coordinates: [18.2528, 109.5119]
+      },
+
+      {
+        name: "Dunhuang",
+        country: "China",
+        coordinates: [40.1421, 94.6618]
+      },
+
+      {
+        name: "Toronto",
+        country: "Canada",
+        coordinates: [43.6532, -79.3832]
+      },
+
+      {
+        name: "Vancouver",
+        country: "Canada",
+        coordinates: [49.2827, -123.1207]
+      },
+
+      {
+        name: "Alberta",
+        country: "Canada",
+        coordinates: [53.9333, -116.5765]
+      },
+
+      {
+        name: "Tokyo",
+        country: "Japan",
+        coordinates: [35.6762, 139.6503]
+      },
+
+      {
+        name: "Texas",
+        country: "USA",
+        coordinates: [31.9686, -99.9018]
+      },
+
+      {
+        name: "New York",
+        country: "USA",
+        coordinates: [40.7128, -74.0060]
+      },
+
+      {
+        name: "Raleigh",
+        country: "USA",
+        coordinates: [35.7796, -78.6382]
+      }
+    ];
+
+
+    // Add a marker for every destination
+    places.forEach(function (place) {
+
+      const marker = L.marker(place.coordinates)
+        .addTo(map);
+
+
+      // Popup shown when marker is clicked
+      marker.bindPopup(`
+        <div class="travel-popup">
+          <strong>${place.name}</strong>
+          <br>
+          ${place.country}
+        </div>
+      `);
+
+    });
+
+  });
 </script>
 
 

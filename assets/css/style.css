@@ -896,3 +896,31 @@ footer,
     color: white !important;
 }
 
+/* =========================================================
+   Interactive Travel Map
+   ========================================================= */
+
+#travel-map {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+    border: 2px solid var(--purple-light);
+}
+
+/* Travel map popup */
+.travel-popup {
+    text-align: center;
+}
+
+.travel-popup strong {
+    color: var(--purple-main);
+    font-size: 16px;
+}
+
+/* Make map controls fit the website */
+.leaflet-control-zoom a {
+    color: var(--purple-main) !important;
+}
+
