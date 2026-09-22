@@ -842,3 +842,57 @@ footer,
     border-radius: 4px;
 }
 
+
+/* =========================================================
+   Activity 6: Scroll Reveal + Hover Animation
+   ========================================================= */
+
+/* Initial state: hidden and slightly below its final position */
+#projects-container .project-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Revealed state */
+#projects-container .project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover animation */
+#projects-container .project-card.visible:hover {
+    transform: translateY(-8px);
+}
+
+/* Add shadow to the actual card */
+#projects-container .project-card.visible:hover .card {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Accessibility: respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #projects-container .project-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    #projects-container .project-card.visible:hover {
+        transform: none;
+    }
+
+    #projects-container .project-card.visible:hover .card {
+        box-shadow: none;
+    }
+}
+
+/* Make dynamically typed text white */
+.typing {
+    font-weight: 300;
+    color: white !important;
+}
+

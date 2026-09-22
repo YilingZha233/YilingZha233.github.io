@@ -225,7 +225,7 @@
           <h2>Hi, I'm <span class="teal">Yiling Zha.</span></h2>
 
           <h5 style="color:#fff">
-            An <span class="typing" style="font-weight: 300; color:#004d40"></span>
+            An <span class="typing"></span>
           </h5>
 
           <h5>
@@ -898,171 +898,237 @@
     })
   </script>
 
-    <!-- Activity 5: Dynamic Project Content -->
-  <script>
-    // Project data
-    const projects = [
-      {
-        title: "FPGA-Based Game System on DE1-SoC",
-        icon: "fa-gamepad",
-        summary:
-          "A two-player fighting game implemented using a custom soft-core system.",
-        details: [
-          "Implemented a two-player fighting game on the Intel DE1-SoC.",
-          "Combined NIOS II Assembly, C, and Verilog to implement the system.",
-          "Integrated custom peripherals including VGA, PS/2 keyboard, and audio I/O.",
-          "Used interrupt-driven control for interaction with hardware peripherals.",
-          "<b>Tools:</b> NIOS II, C, Assembly, Verilog, Intel Quartus Prime"
-        ]
-      },
+    <!-- Activity 5 + Activity 6: Dynamic Projects + Animations -->
+<script>
+  const projects = [
+    {
+      title: "FPGA-Based Game System on DE1-SoC",
+      icon: "fa-gamepad",
+      summary:
+        "A two-player fighting game implemented using a custom soft-core system.",
+      details: [
+        "Implemented a two-player fighting game on the Intel DE1-SoC.",
+        "Combined NIOS II Assembly, C, and Verilog to implement the system.",
+        "Integrated custom peripherals including VGA, PS/2 keyboard, and audio I/O.",
+        "Used interrupt-driven control for interaction with hardware peripherals.",
+        "<b>Tools:</b> NIOS II, C, Assembly, Verilog, Intel Quartus Prime"
+      ]
+    },
 
-      {
-        title: "Travel Planner GIS",
-        icon: "fa-map-marker",
-        summary:
-          "A C++ map and routing application using graph algorithms and OpenStreetMap data.",
-        details: [
-          "Built a C++ travel planner using OpenStreetMap data and graph algorithms.",
-          "Implemented Dijkstra, A*, Greedy, 3-opt, and Simulated Annealing algorithms for routing and TSP-like problems.",
-          "Developed a multi-threaded backend and interactive GUI for large map datasets.",
-          "Focused on algorithmic performance, memory usage, and application responsiveness.",
-          "<b>Tools:</b> C++, GTK, EZGL, Glade, OpenStreetMap"
-        ]
-      },
+    {
+      title: "Travel Planner GIS",
+      icon: "fa-map-marker",
+      summary:
+        "A C++ map and routing application using graph algorithms and OpenStreetMap data.",
+      details: [
+        "Built a C++ travel planner using OpenStreetMap data and graph algorithms.",
+        "Implemented Dijkstra, A*, Greedy, 3-opt, and Simulated Annealing algorithms for routing and TSP-like problems.",
+        "Developed a multi-threaded backend and interactive GUI for large map datasets.",
+        "Focused on algorithmic performance, memory usage, and application responsiveness.",
+        "<b>Tools:</b> C++, GTK, EZGL, Glade, OpenStreetMap"
+      ]
+    },
 
-      {
-        title: "License-Plate Recognition",
-        icon: "fa-car",
-        summary:
-          "A real-time license-plate localization and recognition system using CNNs and YOLOv8.",
-        details: [
-          "Developed a real-time object localization and detection system for recognizing numbers on license plates.",
-          "Applied Convolutional Neural Networks (CNNs) using TensorFlow and YOLOv8.",
-          "Optimized model performance using the Adam optimizer and early stopping to reduce overfitting.",
-          "Achieved 85% accuracy on validation data.",
-          "<b>Tools:</b> Python, TensorFlow, CNN, YOLOv8"
-        ]
-      },
+    {
+      title: "License-Plate Recognition",
+      icon: "fa-car",
+      summary:
+        "A real-time license-plate localization and recognition system using CNNs and YOLOv8.",
+      details: [
+        "Developed a real-time object localization and detection system for recognizing numbers on license plates.",
+        "Applied Convolutional Neural Networks (CNNs) using TensorFlow and YOLOv8.",
+        "Optimized model performance using the Adam optimizer and early stopping to reduce overfitting.",
+        "Achieved 85% accuracy on validation data.",
+        "<b>Tools:</b> Python, TensorFlow, CNN, YOLOv8"
+      ]
+    },
 
-      {
-        title: "Machine Learning Specialization",
-        icon: "fa-line-chart",
-        summary:
-          "Machine learning projects completed through the Stanford University Machine Learning Specialization on Coursera.",
-        details: [
-          "Developed and evaluated supervised learning models for handwritten digit classification using the MNIST dataset.",
-          "Implemented logistic regression with Stochastic Gradient Descent, achieving 92% accuracy.",
-          "Evaluated Support Vector Machine (SVM) and Random Forest ensemble models.",
-          "Built a Convolutional Neural Network using TensorFlow and Keras, achieving 98% accuracy.",
-          "<b>Tools:</b> Python, TensorFlow, Keras, SVM, Random Forest, CNN"
-        ]
-      },
+    {
+      title: "Machine Learning Specialization",
+      icon: "fa-line-chart",
+      summary:
+        "Machine learning projects completed through the Stanford University Machine Learning Specialization on Coursera.",
+      details: [
+        "Developed and evaluated supervised learning models for handwritten digit classification using the MNIST dataset.",
+        "Implemented logistic regression with Stochastic Gradient Descent, achieving 92% accuracy.",
+        "Evaluated Support Vector Machine (SVM) and Random Forest ensemble models.",
+        "Built a Convolutional Neural Network using TensorFlow and Keras, achieving 98% accuracy.",
+        "<b>Tools:</b> Python, TensorFlow, Keras, SVM, Random Forest, CNN"
+      ]
+    },
 
-      {
-        title: "TinyViT Hybrid CPU-FPGA Inference Accelerator",
-        icon: "fa-microchip",
-        summary:
-          "A hybrid CPU-FPGA accelerator for TinyViT inference on the Intel DE1-SoC.",
-        details: [
-          "Developing a hybrid CPU-FPGA inference accelerator for TinyViT on the Intel DE1-SoC.",
-          "Offloading compute-intensive matrix multiplication workloads to the FPGA while the ARM Cortex-A9 HPS manages inference control and system-level orchestration.",
-          "Established a CPU baseline on the HPS and profiled layer-level latency, computational cost, and HPS-FPGA data-transfer overhead.",
-          "Designing and verifying an FPGA matrix-multiplication kernel with planned optimization through a systolic-array architecture.",
-          "Integrating FPGA acceleration with the HPS through DMA, buffering, and hardware/software control interfaces.",
-          "Evaluating end-to-end latency, FPGA performance, DMA overhead, FPGA resource utilization, and output consistency against the CPU baseline.",
-          "<b>Supervisor:</b> Prof. Vaughan Betz<br><b>Tools:</b> Intel DE1-SoC, FPGA, ARM Cortex-A9, DMA, C/C++, Verilog"
-        ]
-      }
-    ];
+    {
+      title: "TinyViT Hybrid CPU-FPGA Inference Accelerator",
+      icon: "fa-microchip",
+      summary:
+        "A hybrid CPU-FPGA accelerator for TinyViT inference on the Intel DE1-SoC.",
+      details: [
+        "Developing a hybrid CPU-FPGA inference accelerator for TinyViT on the Intel DE1-SoC.",
+        "Offloading compute-intensive matrix multiplication workloads to the FPGA while the ARM Cortex-A9 HPS manages inference control and system-level orchestration.",
+        "Established a CPU baseline on the HPS and profiled layer-level latency, computational cost, and HPS-FPGA data-transfer overhead.",
+        "Designing and verifying an FPGA matrix-multiplication kernel with planned optimization through a systolic-array architecture.",
+        "Integrating FPGA acceleration with the HPS through DMA, buffering, and hardware/software control interfaces.",
+        "Evaluating end-to-end latency, FPGA performance, DMA overhead, FPGA resource utilization, and output consistency against the CPU baseline.",
+        "<b>Supervisor:</b> Prof. Vaughan Betz<br><b>Tools:</b> Intel DE1-SoC, FPGA, ARM Cortex-A9, DMA, C/C++, Verilog"
+      ]
+    }
+  ];
 
-    // Number of projects shown when the page first loads
-    let displayedProjects = 2;
+  let displayedProjects = 2;
 
-    // Generate project cards
-    function displayProjects() {
-      const container = document.getElementById("projects-container");
 
-      // Clear existing project cards
-      container.innerHTML = "";
+  /*
+   * Activity 5:
+   * Display project cards dynamically
+   */
+  function displayProjects() {
+    const container = document.getElementById("projects-container");
 
-      // Display the requested number of projects
-      projects.slice(0, displayedProjects).forEach(function(project) {
+    container.innerHTML = "";
 
-        const projectCard = `
-          <div class="col s12 m6">
-            <div class="card medium">
+    projects.slice(0, displayedProjects).forEach(function(project) {
 
-              <div class="card-image waves-effect waves-block waves-light">
-                <div style="
-                  height: 220px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  background: #eceff1;
-                ">
-                  <i class="fa ${project.icon} fa-5x teal-text"></i>
-                </div>
+      const projectCard = `
+        <div class="col s12 m6 project-card">
+
+          <div class="card medium">
+
+            <div class="card-image waves-effect waves-block waves-light">
+              <div style="
+                height: 220px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #eceff1;
+              ">
+                <i class="fa ${project.icon} fa-5x teal-text"></i>
               </div>
-
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">
-                  ${project.title}
-                  <i class="mdi-navigation-more-vert right"></i>
-                </span>
-
-                <p>
-                  ${project.summary}
-                </p>
-              </div>
-
-              <div class="card-reveal">
-                <span class="card-title teal-text">
-                  <small>Project Details</small>
-                  <i class="mdi-navigation-close right"></i>
-                </span>
-
-                <ul>
-                  ${project.details.map(function(detail) {
-                    return `<li>${detail}</li>`;
-                  }).join("")}
-                </ul>
-              </div>
-
             </div>
-          </div>
-        `;
 
-        container.insertAdjacentHTML("beforeend", projectCard);
+            <div class="card-content">
+              <span class="card-title activator teal-text hoverline">
+                ${project.title}
+                <i class="mdi-navigation-more-vert right"></i>
+              </span>
+
+              <p>
+                ${project.summary}
+              </p>
+            </div>
+
+            <div class="card-reveal">
+              <span class="card-title teal-text">
+                <small>Project Details</small>
+                <i class="mdi-navigation-close right"></i>
+              </span>
+
+              <ul>
+                ${project.details.map(function(detail) {
+                  return `<li>${detail}</li>`;
+                }).join("")}
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      `;
+
+      container.insertAdjacentHTML("beforeend", projectCard);
+    });
+
+
+    /*
+     * Activity 6:
+     * Observe project cards and reveal them
+     * when they enter the viewport.
+     */
+    observeProjectCards();
+
+
+    /*
+     * Activity 5:
+     * Hide Load More button after all projects
+     * have been displayed.
+     */
+    const loadMoreButton =
+      document.getElementById("load-more-projects");
+
+    if (displayedProjects >= projects.length) {
+      loadMoreButton.style.display = "none";
+    } else {
+      loadMoreButton.style.display = "inline-block";
+    }
+  }
+
+
+  /*
+   * Activity 6:
+   * Scroll Reveal Animation
+   *
+   * IntersectionObserver detects when a project
+   * card enters the visible area of the browser.
+   */
+  function observeProjectCards() {
+
+    const cards =
+      document.querySelectorAll(
+        "#projects-container .project-card:not(.visible)"
+      );
+
+    const observer = new IntersectionObserver(
+      function(entries, observer) {
+
+        entries.forEach(function(entry) {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+
+    cards.forEach(function(card) {
+      observer.observe(card);
+    });
+  }
+
+
+  /*
+   * Initialize the projects when the page loads.
+   */
+  document.addEventListener("DOMContentLoaded", function() {
+
+    displayProjects();
+
+
+    /*
+     * Activity 5:
+     * Load the remaining projects when the
+     * button is clicked.
+     */
+    document
+      .getElementById("load-more-projects")
+      .addEventListener("click", function() {
+
+        displayedProjects = projects.length;
+
+        displayProjects();
+
       });
 
-      // Hide the button when all projects are displayed
-      const loadMoreButton =
-        document.getElementById("load-more-projects");
+  });
 
-      if (displayedProjects >= projects.length) {
-        loadMoreButton.style.display = "none";
-      } else {
-        loadMoreButton.style.display = "inline-block";
-      }
-    }
-
-    // Run when the page has finished loading
-    document.addEventListener("DOMContentLoaded", function() {
-
-      // Initially display only two projects
-      displayProjects();
-
-      // Load remaining projects when the button is clicked
-      document
-        .getElementById("load-more-projects")
-        .addEventListener("click", function() {
-
-          displayedProjects = projects.length;
-
-          displayProjects();
-        });
-    });
-  </script>
+</script>
 
 
 </body>
